@@ -1,15 +1,9 @@
 import {StyleSheet} from 'react-native';
+import appSpacingConfig from '@styles/spacing';
 
 export default StyleSheet.create({
-  container: {
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  text: {
-    fontSize: 30,
-    color: 'red',
-    fontFamily: 'MontserratAlternates-Regular',
+  imagesContainer: {
+    flex: 1,
+    paddingHorizontal: appSpacingConfig.padding4,
   },
 });
