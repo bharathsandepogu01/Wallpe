@@ -1,7 +1,8 @@
 import {StyleSheet} from 'react-native';
-import {IStylesConfig} from '@styles/types';
+import IColorsConfig from '@styles/colors/types';
+import {getDP} from '@styles/common';
 
-export default function getThemeStyles(styleConfig: IStylesConfig) {
+export default function getThemeStyles(colorsConfig: IColorsConfig) {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -21,15 +22,15 @@ export default function getThemeStyles(styleConfig: IStylesConfig) {
 
     animatedBackground: {
       position: 'absolute',
-      height: '100%',
-      width: '50%',
-      backgroundColor: styleConfig.primary,
+      height: getDP(120),
+      width: getDP(120),
+      backgroundColor: colorsConfig.primary,
       borderRadius: 50,
     },
 
-    icon: {
-      height: '100%',
-      width: '100%',
+    iconView: {
+      height: getDP(70),
+      width: getDP(70),
       display: 'flex',
       alignContent: 'center',
       alignItems: 'center',

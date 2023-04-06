@@ -10,7 +10,7 @@ function TabsCustomButton(props: ITabsCustomButtonProps): JSX.Element {
   const focused = accessibilityState?.selected;
   const backgroundAnimation = useRef(new Animated.Value(0)).current;
   const iconAnimation = useRef(new Animated.Value(1)).current;
-  const [svgColor, setSvgColor] = useState<string>(stylesConfig.borderColor);
+  const [svgColor, setSvgColor] = useState<string>(stylesConfig.inActiveColor);
 
   const styles = getThemeStyles(stylesConfig);
 
@@ -21,7 +21,7 @@ function TabsCustomButton(props: ITabsCustomButtonProps): JSX.Element {
         duration: 0,
         useNativeDriver: true,
       }).start(() => {
-        setSvgColor(stylesConfig.borderColor);
+        setSvgColor(stylesConfig.inActiveColor);
       });
       Animated.timing(backgroundAnimation, {
         toValue: 0,
@@ -48,7 +48,7 @@ function TabsCustomButton(props: ITabsCustomButtonProps): JSX.Element {
           }),
         ]),
       ]).start(() => {
-        setSvgColor(stylesConfig.textPrimary);
+        setSvgColor(stylesConfig.textPrimaryColor);
       });
     }
   }, [focused, stylesConfig]);
@@ -65,8 +65,8 @@ function TabsCustomButton(props: ITabsCustomButtonProps): JSX.Element {
             {transform: [{scale: backgroundAnimation}]},
           ]}></Animated.View>
         <Animated.View
-          style={[styles.icon, {transform: [{scale: iconAnimation}]}]}>
-          <Icon height={'55%'} width={'55%'} fill={svgColor} />
+          style={[styles.iconView, {transform: [{scale: iconAnimation}]}]}>
+          <Icon height={'100%'} width={'100%'} fill={svgColor} />
         </Animated.View>
       </View>
     </TouchableOpacity>
