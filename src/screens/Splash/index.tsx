@@ -1,11 +1,28 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useEffect} from 'react';
+import {View} from 'react-native';
 import styles from './styles';
+import {AppStackScreenProps} from '@navigation/types';
+import PText from '@components/PText';
 
-function Splash(): JSX.Element {
+function Splash({
+  navigation,
+  route,
+}: AppStackScreenProps<'Splash'>): JSX.Element {
+  useEffect(() => {
+    const timeFn = setTimeout(() => {
+      navigation.navigate('Home Tab', {screen: 'Papier'});
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeFn);
+    };
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Splash Screen</Text>
+      <PText bold extraLarge>
+        Papier
+      </PText>
     </View>
   );
 }
