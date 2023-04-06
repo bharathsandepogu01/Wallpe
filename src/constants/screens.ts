@@ -1,4 +1,4 @@
-export const HOME_SCREEN = 'Home';
+export const HOME_SCREEN = 'Papier';
 export const HOME_TAB_SCREEN = 'Home Tab';
 export const COLLECTIONS_SCREEN = 'Collections';
 export const SPLASH_SCREEN = 'Splash';

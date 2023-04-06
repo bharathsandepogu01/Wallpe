@@ -16,6 +16,9 @@ import HomeIcon from '@assets/icons/home-icon.svg';
 import SettingsIcon from '@assets/icons/settings-icon.svg';
 import SearchIcon from '@assets/icons/search-icon.svg';
 import CollectionsIcon from '@assets/icons/collections-icon.svg';
+import {getDP} from '@styles/common';
+import PText from '@components/PText';
+import appTypography from '@styles/typography';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,14 +31,22 @@ function TabNavigation(): JSX.Element {
     <Tab.Navigator
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: stylesConfig.background,
+          backgroundColor: stylesConfig.backgroundColor,
           borderTopColor: stylesConfig.borderColor,
-          height: 50,
+          height: getDP(140),
           borderTopWidth: 0.5,
-          elevation: 0,
-          shadowOpacity: 0,
         },
-        headerShown: false,
+        headerStyle: {
+          backgroundColor: stylesConfig.backgroundColor,
+          borderBottomColor: stylesConfig.borderColor,
+          height: getDP(140),
+          borderBottomWidth: 0.5,
+        },
+        headerTitleStyle: {
+          fontFamily: appTypography.fontFamilyMedium,
+          fontSize: appTypography.fontSize,
+        },
+        headerShown: true,
         tabBarShowLabel: false,
       }}>
       <Tab.Screen
@@ -51,6 +62,7 @@ function TabNavigation(): JSX.Element {
         name={SEARCH_SCREEN}
         component={Search}
         options={{
+          headerShown: false,
           tabBarButton: props => (
             <TabsCustomButton icon={SearchIcon} {...props} />
           ),

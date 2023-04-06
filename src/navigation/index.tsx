@@ -13,9 +13,9 @@ function Navigation(): JSX.Element {
         dark: appTheme === 'dark',
         colors: {
           ...DefaultTheme.colors,
-          background: stylesConfig.background,
+          background: stylesConfig.backgroundColor,
           primary: stylesConfig.primary,
-          text: stylesConfig.textPrimary,
+          text: stylesConfig.textPrimaryColor,
         },
       }}>
       <AppStackNavigation />
