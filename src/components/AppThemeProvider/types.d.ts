@@ -1,14 +1,12 @@
 import {PropsWithChildren} from 'react';
-import {IStylesConfig} from '@styles/types';
+import IColorsConfig from '@styles/colors/types';
 
 export type AppTheme = 'dark' | 'light';
 
-export interface IAppThemeProviderProps extends PropsWithChildren {
-  theme?: AppTheme;
-}
+export interface IAppThemeProviderProps extends PropsWithChildren {}
 
 export interface IAppThemeContextType {
   appTheme: AppTheme;
   setAppTheme: (appTheme: AppTheme) => void;
-  stylesConfig: IStylesConfig;
+  stylesConfig: IColorsConfig;
 }
