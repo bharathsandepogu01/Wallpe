@@ -6,10 +6,4 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
-  text: {
-    fontSize: 30,
-    color: 'red',
-    fontFamily: 'MontserratAlternates-Regular',
-  },
 });
