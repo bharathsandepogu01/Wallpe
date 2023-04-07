@@ -10,7 +10,7 @@ function Splash({
 }: AppStackScreenProps<'Splash'>): JSX.Element {
   useEffect(() => {
     const timeFn = setTimeout(() => {
-      navigation.navigate('Home Tab', {screen: 'Papier'});
+      navigation.replace('Home Tab', {screen: 'Papier'});
     }, 3000);
 
     return () => {
