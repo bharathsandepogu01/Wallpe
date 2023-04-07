@@ -7,6 +7,7 @@ export interface IPImageListViewProps<T, U> {
   getImageUrlFromListItemFn: (item: T) => string;
   getListFromQueriedResponseFn: (response: U) => T[];
   getImageHeightFromListItem: (item: T) => number;
+  onClickItem: (item: T) => void;
   graphqlQuery: DocumentNode;
 }
 

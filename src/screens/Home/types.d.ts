@@ -1,5 +1,6 @@
 interface IUrl {
   small: string;
+  full: string;
 }
 
 interface IUser {
@@ -8,6 +9,7 @@ interface IUser {
 }
 
 export interface IImage {
+  id: string;
   urls: IUrl;
   user: IUser;
   height: number;

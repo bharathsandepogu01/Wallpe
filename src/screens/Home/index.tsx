@@ -11,6 +11,7 @@ const GET_IMAGES_LIST = gql`
       id
       urls {
         small
+        full
       }
       user {
         name
@@ -28,9 +29,15 @@ function Home(): JSX.Element {
 
   return (
     <PImageListView<IImage, IImagesList>
-      getImageUrlFromListItemFn={imageObject => imageObject.urls.small}
+      getImageUrlFromListItemFn={imageObj => imageObj.urls.small}
       getListFromQueriedResponseFn={queryResponse => queryResponse.getImages}
-      getImageHeightFromListItem={imageObject => imageObject.height}
+      getImageHeightFromListItem={imageObj => imageObj.height}
+      onClickItem={imageObj =>
+        navigation.navigate('Image Details', {
+          imageId: imageObj.id,
+          imageUrl: imageObj.urls.full,
+        })
+      }
       graphqlQuery={GET_IMAGES_LIST}
     />
   );

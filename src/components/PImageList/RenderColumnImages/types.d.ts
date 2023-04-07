@@ -3,4 +3,5 @@ export default interface IRenderColumnImagesProps<T> {
   getImageUrlFn: (item: T) => string;
   index: number;
   itemsArr: T[];
+  onClickImage: (item: T) => void;
 }

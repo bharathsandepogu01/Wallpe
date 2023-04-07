@@ -17,10 +17,10 @@ import SettingsIcon from '@assets/icons/settings-icon.svg';
 import SearchIcon from '@assets/icons/search-icon.svg';
 import CollectionsIcon from '@assets/icons/collections-icon.svg';
 import {getDP} from '@styles/common';
-import PText from '@components/PText';
 import appTypography from '@styles/typography';
+import {BottomTabParamsList} from './types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomTabParamsList>();
 
 //TODO use array for tab screens to remove repetitive code
 

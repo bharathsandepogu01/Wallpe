@@ -18,6 +18,7 @@ function PImageListView<ImageType, QueriedResultType>({
   getImageHeightFromListItem,
   getImageUrlFromListItemFn,
   getListFromQueriedResponseFn,
+  onClickItem,
   graphqlQuery,
 }: IPImageListViewProps<ImageType, QueriedResultType>): JSX.Element {
   const columnData = useRef<ImageType[][]>(
@@ -77,6 +78,7 @@ function PImageListView<ImageType, QueriedResultType>({
             getImageUrlFn={getImageUrlFromListItemFn}
             index={index}
             itemsArr={item}
+            onClickImage={onClickItem}
           />
         )}
         numColumns={2}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Pressable} from 'react-native';
 import appSpacingConfig from '@styles/spacing';
 import PIMage from '@components/PImage';
 import IRenderColumnImagesProps from './types';
@@ -9,6 +9,7 @@ function RenderColumnImages<T>({
   itemsArr: columnData,
   getImageHeight,
   getImageUrlFn,
+  onClickImage,
 }: IRenderColumnImagesProps<T>) {
   return (
     <View
@@ -21,16 +22,19 @@ function RenderColumnImages<T>({
         const imageHeight = getImageHeight(item);
         const imageUrl = getImageUrlFn(item);
         return (
-          <PIMage
-            source={{uri: imageUrl}}
-            style={{
-              height: imageHeight,
-              borderRadius: 4,
-              margin: appSpacingConfig.margin4,
-            }}
-            borderRadius={4}
-            key={`${imageUrl}${index}`}
-          />
+          <Pressable
+            onPress={() => onClickImage(item)}
+            key={`${imageUrl}${index}`}>
+            <PIMage
+              source={{uri: imageUrl}}
+              style={{
+                height: imageHeight,
+                borderRadius: 4,
+                margin: appSpacingConfig.margin4,
+              }}
+              borderRadius={4}
+            />
+          </Pressable>
         );
       })}
     </View>
