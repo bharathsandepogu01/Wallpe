@@ -19,7 +19,7 @@ export default function getPIconThemeStyles(colorsConfig: IColorsConfig) {
       backgroundColor: colorsConfig.primaryDark,
     },
     backgroundColorDark: {
-      backgroundColor: colorsConfig.dark,
+      backgroundColor: colorsConfig.backgroundColor,
     },
   });
 }
