@@ -1,16 +1,15 @@
 import React from 'react';
-import {View, Image} from 'react-native';
-import {IImage} from '@screens/Home/types';
+import {View} from 'react-native';
 import appSpacingConfig from '@styles/spacing';
 import PIMage from '@components/PImage';
+import IRenderColumnImagesProps from './types';
 
-function RenderColumn({
+function RenderColumnImages<T>({
   index,
-  item: columnData,
-}: {
-  index: number;
-  item: IImage[];
-}) {
+  itemsArr: columnData,
+  getImageHeight,
+  getImageUrlFn,
+}: IRenderColumnImagesProps<T>) {
   return (
     <View
       style={{
@@ -19,16 +18,18 @@ function RenderColumn({
       }}
       key={index}>
       {columnData.map((item, index) => {
+        const imageHeight = getImageHeight(item);
+        const imageUrl = getImageUrlFn(item);
         return (
           <PIMage
-            source={{uri: item.urls.small}}
+            source={{uri: imageUrl}}
             style={{
-              height: item.height,
+              height: imageHeight,
               borderRadius: 4,
               margin: appSpacingConfig.margin4,
             }}
             borderRadius={4}
-            key={`${item.urls.small}${index}`}
+            key={`${imageUrl}${index}`}
           />
         );
       })}
@@ -36,4 +37,4 @@ function RenderColumn({
   );
 }
 
-export default RenderColumn;
+export default RenderColumnImages;

@@ -10,7 +10,7 @@ interface IUser {
 export interface IImage {
   urls: IUrl;
   user: IUser;
-  height?: number;
+  height: number;
 }
 
 export interface IImagesList {
