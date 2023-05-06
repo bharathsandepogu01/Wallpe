@@ -43,6 +43,7 @@ function PImageListView<ImageType, QueriedResultType>({
   };
 
   const handleFetchMore = () => {
+    if (fetchingMore) return;
     fetchMore({});
   };
 
