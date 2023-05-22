@@ -13,6 +13,7 @@ export default function getPToggleThemeStyles(colorsConfig: IColorsConfig) {
       padding: getDP(16),
     },
     toggleBackground: {
+      // TODO try to do it in percentage
       height: getDP(40),
       width: getDP(90),
       backgroundColor: colorsConfig.inActiveColor,

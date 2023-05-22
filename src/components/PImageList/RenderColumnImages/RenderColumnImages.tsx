@@ -32,7 +32,6 @@ function RenderColumnImages<T>({
                 borderRadius: 4,
                 margin: appSpacingConfig.margin4,
               }}
-              borderRadius={4}
             />
           </Pressable>
         );
