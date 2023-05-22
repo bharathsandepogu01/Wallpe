@@ -8,6 +8,11 @@ export default interface IColorsConfig {
   borderColor: string;
   inActiveColor: string;
   dark: string;
-  error: string;
   backgroundColorLight: string;
+  error: string;
+  errorLight: string;
+  success: string;
+  successLight: string;
+  warning: string;
+  warningLight: string;
 }
