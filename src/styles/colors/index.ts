@@ -2,7 +2,7 @@ import {AppTheme} from '@components/AppThemeProvider/types';
 import IColorsConfig from './types';
 
 const commonColors = {
-  error: '#ef4444',
+  error: '#b91c1c',
   errorLight: '#fee2e2',
   success: '#16a34a',
   successLight: '#dcfce7',
