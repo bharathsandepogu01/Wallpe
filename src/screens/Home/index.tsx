@@ -12,6 +12,7 @@ const GET_IMAGES_LIST = gql`
       urls {
         small
         full
+        regular
       }
       user {
         name
@@ -29,7 +30,7 @@ function Home(): JSX.Element {
 
   return (
     <PImageListView<IImage, IImagesList>
-      getImageUrlFromListItemFn={imageObj => imageObj.urls.small}
+      getImageUrlFromListItemFn={imageObj => imageObj.urls.regular}
       getListFromQueriedResponseFn={queryResponse => queryResponse.getImages}
       getImageHeightFromListItem={imageObj => imageObj.height}
       onClickItem={imageObj =>

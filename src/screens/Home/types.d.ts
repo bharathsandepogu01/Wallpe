@@ -1,6 +1,7 @@
 interface IUrl {
   small: string;
   full: string;
+  regular: string;
 }
 
 interface IUser {
