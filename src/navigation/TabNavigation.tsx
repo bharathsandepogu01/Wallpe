@@ -48,6 +48,7 @@ function TabNavigation(): JSX.Element {
         },
         headerShown: true,
         tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
       }}>
       <Tab.Screen
         name={HOME_SCREEN}
