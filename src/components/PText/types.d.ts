@@ -1,4 +1,5 @@
 import {PropsWithChildren} from 'react';
+import { StyleProp, TextStyle } from 'react-native';
 
 export default interface IPTextProps extends PropsWithChildren {
   tiny?: boolean;
@@ -15,4 +16,5 @@ export default interface IPTextProps extends PropsWithChildren {
   primaryColorDark?: boolean;
   error?: boolean;
   extraLarge?: boolean;
+  customStyle?: StyleProp<TextStyle>;
 }
