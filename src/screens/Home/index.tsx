@@ -30,7 +30,7 @@ function Home(): JSX.Element {
 
   return (
     <PImageListView<IImage, IImagesList>
-      getImageUrlFromListItemFn={imageObj => imageObj.urls.regular}
+      getImageUrlFromListItemFn={imageObj => imageObj.urls.small}
       getListFromQueriedResponseFn={queryResponse => queryResponse.getImages}
       getImageHeightFromListItem={imageObj => imageObj.height}
       onClickItem={imageObj =>
