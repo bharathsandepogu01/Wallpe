@@ -1,6 +1,6 @@
 import React from 'react';
 import {gql} from '@apollo/client';
-import {IImage, IImagesList} from './types';
+import {IImage, IImagesList, IVariables} from './types';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {AppBottomTabScreenProps} from '@navigation/types';
 import PImageListView from '@components/PImageList/index';
@@ -29,7 +29,7 @@ function Home(): JSX.Element {
   const route = useRoute<AppBottomTabScreenProps<'Papier'>['route']>();
 
   return (
-    <PImageListView<IImage, IImagesList>
+    <PImageListView<IImage, IImagesList, IVariables>
       getImageUrlFromListItemFn={imageObj => imageObj.urls.small}
       getListFromQueriedResponseFn={queryResponse => queryResponse.getImages}
       getImageHeightFromListItem={imageObj => imageObj.height}
@@ -40,6 +40,8 @@ function Home(): JSX.Element {
         })
       }
       graphqlQuery={GET_IMAGES_LIST}
+      variables={{}}
+      updateVariables={variables => variables}
     />
   );
 }

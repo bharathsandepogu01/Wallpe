@@ -19,3 +19,5 @@ export interface IImage {
 export interface IImagesList {
   getImages: IImage[];
 }
+
+export interface IVariables {}

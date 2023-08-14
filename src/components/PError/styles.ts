@@ -13,5 +13,9 @@ export default function getPErrorThemeStyles(colorsConfig: IColorsConfig) {
       gap: getDP(16),
       padding: appSpacingConfig.padding8,
     },
+    iconCustomStyles: {
+      height: getDP(120),
+      width: getDP(120),
+    },
   });
 }

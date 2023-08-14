@@ -27,6 +27,21 @@ const client = new ApolloClient({
               return merged;
             },
           },
+          getImagesBySearch: {
+            keyArgs: args => {
+              return args?.input?.search;
+            },
+
+            merge(existing, incoming, args) {
+              const merged = existing ? existing.slice(0) : [];
+
+              for (let i = 0; i < incoming.length; ++i) {
+                merged.push(incoming[i]);
+              }
+
+              return merged;
+            },
+          },
         },
       },
     },
