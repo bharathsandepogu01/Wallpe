@@ -38,7 +38,7 @@ function ImageDetails({
     showToast: false,
     toastMessage: '',
   });
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const isIOSPlatform = Platform.OS === 'ios';
   const isAndroidPlatform = Platform.OS === 'android';
@@ -186,7 +186,6 @@ function ImageDetails({
           source={{uri: params.regularImageUrl}}
           resizeMode="cover"
           style={styles.imageContainer}
-          onLoadEnd={() => setLoading(false)}
         />
       </Pressable>
 
