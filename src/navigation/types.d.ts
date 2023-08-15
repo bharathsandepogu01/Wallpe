@@ -8,6 +8,7 @@ import {
   SEARCH_SCREEN,
   SETTINGS_SCREEN,
   SPLASH_SCREEN,
+  SEARCH_RESULTS_SCREEN
 } from '@constants/screens';
 import {
   CompositeScreenProps,
@@ -35,6 +36,9 @@ export type AppStackParamsList = {
     collectionId: string;
     collectionTitle: string;
   };
+  [SEARCH_RESULTS_SCREEN]: {
+    searchText: string;
+  }
 };
 
 export type BottomTabParamsList = {

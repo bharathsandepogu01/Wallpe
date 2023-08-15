@@ -2,6 +2,7 @@ export const HOME_SCREEN = 'Papier';
 export const HOME_TAB_SCREEN = 'Home Tab';
 export const SPLASH_SCREEN = 'Splash';
 export const SEARCH_SCREEN = 'Search';
+export const SEARCH_RESULTS_SCREEN = 'Search Results Screen';
 export const SETTINGS_SCREEN = 'Settings';
 export const IMAGE_DETAILS_SCREEN = 'Image Details';
 export const COLLECTIONS_SCREEN = 'Collections';

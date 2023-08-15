@@ -5,45 +5,35 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {AppStackScreenProps} from '@navigation/types';
 import PImageListView from '@components/PImageList/index';
 import BackArrow from '@assets/icons/arrow-left-icon.svg';
-import {
-  IGetCollectionImages,
-  IGetCollectionsImagesQueryResult,
-  ISearchData,
-} from './types';
 import styles from './styles';
 import PIcon from '@components/PIcon';
 import PText from '@components/PText';
+import {IImage} from '@screens/Home/types';
+import {ISearchImagesList, ISearchQueryVariables} from './types';
 
-const GET_IMAGES_LIST = gql`
-  query getImagesByCollection($searchData: CollectionSearchInput) {
-    getImagesByCollection(input: $searchData) {
+const GET_IMAGES_BY_SEARCH = gql`
+  query searchImagesList($searchData: SearchInput) {
+    getImagesBySearch(input: $searchData) {
       id
-      title
-      total_photos
-      cover_photo {
-        urls {
-          small
-        }
-      }
       urls {
+        small
         full
         regular
-        small
       }
       user {
         name
-        profile_image {
-          small
-        }
+        username
+        portfolio_url
       }
     }
   }
 `;
 
-function CollectionImages(): JSX.Element {
+function SearchResults(): JSX.Element {
   const navigation =
-    useNavigation<AppStackScreenProps<'Collection Images'>['navigation']>();
-  const route = useRoute<AppStackScreenProps<'Collection Images'>['route']>();
+    useNavigation<AppStackScreenProps<'Search Results Screen'>['navigation']>();
+  const route =
+    useRoute<AppStackScreenProps<'Search Results Screen'>['route']>();
 
   const handleOnPressBack = () => {
     navigation.pop();
@@ -60,31 +50,27 @@ function CollectionImages(): JSX.Element {
           />
         </Pressable>
         <PText medium semiBold numberOfLines={1} ellipsizeMode="tail">
-          {route.params.collectionTitle}
+          {route.params.searchText}
         </PText>
       </View>
-      <PImageListView<
-        IGetCollectionImages,
-        IGetCollectionsImagesQueryResult,
-        ISearchData
-      >
+      <PImageListView<IImage, ISearchImagesList, ISearchQueryVariables>
         getImageUrlFromListItemFn={imageObj => imageObj.urls.small}
         getListFromQueriedResponseFn={queryResponse =>
-          queryResponse.getImagesByCollection
+          queryResponse.getImagesBySearch
         }
         getImageHeightFromListItem={imageObj => imageObj.height}
         onClickItem={imageObj =>
           navigation.navigate('Image Details', {
             imageId: imageObj.id,
-            fullImageUrl: imageObj.urls.full,
             smallImageUrl: imageObj.urls.small,
+            fullImageUrl: imageObj.urls.full,
             regularImageUrl: imageObj.urls.regular,
           })
         }
-        graphqlQuery={GET_IMAGES_LIST}
+        graphqlQuery={GET_IMAGES_BY_SEARCH}
         variables={{
           searchData: {
-            collectionId: route.params.collectionId,
+            search: route.params.searchText,
             page: 1,
             perPage: 10,
           },
@@ -94,7 +80,7 @@ function CollectionImages(): JSX.Element {
             ...variables,
             searchData: {
               ...variables.searchData,
-              page: fetchCallCount + 1,
+              page: variables.searchData.page + fetchCallCount,
             },
           };
         }}
@@ -103,4 +89,4 @@ function CollectionImages(): JSX.Element {
   );
 }
 
-export default CollectionImages;
+export default SearchResults;
