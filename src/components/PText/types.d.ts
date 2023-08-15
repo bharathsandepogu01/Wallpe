@@ -1,7 +1,7 @@
 import {PropsWithChildren} from 'react';
-import { StyleProp, TextStyle } from 'react-native';
+import { StyleProp, TextStyle, TextProps } from 'react-native';
 
-export default interface IPTextProps extends PropsWithChildren {
+export default interface IPTextProps extends PropsWithChildren, TextProps {
   tiny?: boolean;
   small?: boolean;
   medium?: boolean;

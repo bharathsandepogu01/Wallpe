@@ -29,7 +29,8 @@ function PText(props: IPTextProps): JSX.Element {
         props.tertiaryTextColor && styles.tertiaryTextColor,
         props.error && styles.error,
         props.customStyle && props.customStyle,
-      ]}>
+      ]}
+      {...props}>
       {children}
     </Text>
   );
