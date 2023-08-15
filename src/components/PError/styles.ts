@@ -17,5 +17,8 @@ export default function getPErrorThemeStyles(colorsConfig: IColorsConfig) {
       height: getDP(120),
       width: getDP(120),
     },
+    textCustomStyles: {
+      textAlign: 'center',
+    },
   });
 }

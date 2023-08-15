@@ -20,7 +20,7 @@ const client = new ApolloClient({
               // immutable, and frozen in development.
               const merged = existing ? existing.slice(0) : [];
 
-              for (let i = 0; i < incoming.length; ++i) {
+              for (let i = 0; i < incoming?.length; ++i) {
                 merged.push(incoming[i]);
               }
 
@@ -35,7 +35,7 @@ const client = new ApolloClient({
             merge(existing, incoming, args) {
               const merged = existing ? existing.slice(0) : [];
 
-              for (let i = 0; i < incoming.length; ++i) {
+              for (let i = 0; i < incoming?.length; ++i) {
                 merged.push(incoming[i]);
               }
 

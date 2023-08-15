@@ -20,7 +20,7 @@ function PError(props: IPErrorProps): JSX.Element {
   return (
     <View style={styles.container}>
       {props.errorText && (
-        <PText error small>
+        <PText error small customStyle={styles.textCustomStyles}>
           {props.errorText}
         </PText>
       )}
