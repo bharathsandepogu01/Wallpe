@@ -30,7 +30,7 @@ function PImageListView<ImageType, QueriedResultType, Variables>({
   const {loading, data, error, fetchMore, networkStatus, refetch} =
     useQuery<QueriedResultType>(graphqlQuery, {
       notifyOnNetworkStatusChange: true,
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-first',
       variables: {...(variables as OperationVariables)},
     });
 
@@ -43,16 +43,22 @@ function PImageListView<ImageType, QueriedResultType, Variables>({
   const handleScrollEndTop = ({
     nativeEvent,
   }: NativeSyntheticEvent<NativeScrollEvent>) => {
-    if (nativeEvent.contentOffset.y <= 0 && !refetching) {
+    if (nativeEvent.contentOffset.y <= 0) {
+      handleRefetch();
+    }
+  };
+
+  const handleRefetch = () => {
+    if (!refetching) {
       fetchMoreCount.current = 0;
       refetch({...(variables as OperationVariables)});
     }
   };
 
   const handleFetchMore = () => {
-    if (fetchingMore) return;
-    // TODO bug: need to fix for response data having less than 5 images
-    if (data && data instanceof Array && data.length < 10) return;
+    if (!data || fetchingMore) return;
+    const queriedList = getListFromQueriedResponseFn(data);
+    if (queriedList.length < 10) return;
     fetchMoreCount.current = fetchMoreCount.current + 1;
     let newVariables = {...variables};
     if (updateVariables) {
@@ -83,11 +89,11 @@ function PImageListView<ImageType, QueriedResultType, Variables>({
 
   if (loading && !data) return <PLoader />;
 
-  if (error)
+  if (error || columnData.current[0].length === 0)
     return (
       <PError
-        errorText={`Error: ${error.message}`}
-        retryFn={() => refetch({...(variables as OperationVariables)})}
+        errorText={`unable to fetch wallpapers, please try again...`}
+        retryFn={handleRefetch}
       />
     );
 
