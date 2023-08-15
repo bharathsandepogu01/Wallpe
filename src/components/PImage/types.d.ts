@@ -1,4 +1,4 @@
 import {PropsWithChildren} from 'react';
-import {ImageProps} from 'react-native';
+import {ImageProps, ImageBackgroundProps} from 'react-native';
 
-export default interface IPImageProps extends ImageProps {}
+export default interface IPImageProps extends ImageBackgroundProps {}
