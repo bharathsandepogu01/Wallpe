@@ -36,7 +36,9 @@ function Home(): JSX.Element {
       onClickItem={imageObj =>
         navigation.navigate('Image Details', {
           imageId: imageObj.id,
-          imageUrl: imageObj.urls.full,
+          smallImageUrl: imageObj.urls.small,
+          fullImageUrl: imageObj.urls.full,
+          regularImageUrl: imageObj.urls.regular,
         })
       }
       graphqlQuery={GET_IMAGES_LIST}

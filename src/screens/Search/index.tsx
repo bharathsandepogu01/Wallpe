@@ -171,7 +171,11 @@ function Search(): JSX.Element {
                     source={{uri: category.imageUrl}}
                     style={styles.popularCatImage}
                   />
-                  <PText numberOfLines={1} ellipsizeMode={'tail'} small customStyle={styles.popularCatText}>
+                  <PText
+                    numberOfLines={1}
+                    ellipsizeMode={'tail'}
+                    small
+                    customStyle={styles.popularCatText}>
                     {category.name}
                   </PText>
                 </Pressable>
@@ -190,7 +194,9 @@ function Search(): JSX.Element {
           onClickItem={imageObj =>
             navigation.navigate('Image Details', {
               imageId: imageObj.id,
-              imageUrl: imageObj.urls.full,
+              smallImageUrl: imageObj.urls.small,
+              fullImageUrl: imageObj.urls.full,
+              regularImageUrl: imageObj.urls.regular,
             })
           }
           graphqlQuery={GET_IMAGES_BY_SEARCH}

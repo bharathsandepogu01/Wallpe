@@ -42,6 +42,33 @@ const client = new ApolloClient({
               return merged;
             },
           },
+          getCollections: {
+            keyArgs: false,
+
+            merge(existing, incoming, args) {
+              const merged = existing ? existing.slice(0) : [];
+
+              for (let i = 0; i < incoming?.length; ++i) {
+                merged.push(incoming[i]);
+              }
+
+              return merged;
+            },
+          },
+          getImagesByCollection: {
+            keyArgs: args => {
+              return args?.input?.collectionId;
+            },
+            merge(existing, incoming, args) {
+              const merged = existing ? existing.slice(0) : [];
+
+              for (let i = 0; i < incoming?.length; ++i) {
+                merged.push(incoming[i]);
+              }
+
+              return merged;
+            },
+          },
         },
       },
     },

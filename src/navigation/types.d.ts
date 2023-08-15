@@ -1,6 +1,7 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import {
   COLLECTIONS_SCREEN,
+  COLLECTION_IMAGES_SCREEN,
   HOME_SCREEN,
   HOME_TAB_SCREEN,
   IMAGE_DETAILS_SCREEN,
@@ -24,7 +25,16 @@ import {StackScreenProps, StackNavigationProp} from '@react-navigation/stack';
 export type AppStackParamsList = {
   [SPLASH_SCREEN]: undefined;
   [HOME_TAB_SCREEN]: NavigatorScreenParams<BottomTabParamsList>; // for nested navigators
-  [IMAGE_DETAILS_SCREEN]: {imageId: string; imageUrl: string};
+  [IMAGE_DETAILS_SCREEN]: {
+    imageId: string;
+    smallImageUrl: string;
+    regularImageUrl: string;
+    fullImageUrl: string;
+  };
+  [COLLECTION_IMAGES_SCREEN]: {
+    collectionId: string;
+    collectionTitle: string;
+  };
 };
 
 export type BottomTabParamsList = {

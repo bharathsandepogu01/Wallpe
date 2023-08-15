@@ -183,7 +183,7 @@ function ImageDetails({
         onPressOut={handlePressOutImage}
         ref={imageViewRef}>
         <PIMage
-          source={{uri: params.imageUrl}}
+          source={{uri: params.regularImageUrl}}
           resizeMode="cover"
           style={styles.imageContainer}
           onLoadEnd={() => setLoading(false)}
@@ -212,7 +212,7 @@ function ImageDetails({
             opacity: fadeAnimation,
           },
         ]}>
-        <Pressable onPress={() => handleDownload(params.imageUrl)}>
+        <Pressable onPress={() => handleDownload(params.fullImageUrl)}>
           <PIcon icon={DownloadIcon} backgroundColorDark />
         </Pressable>
         <Pressable onPress={handleSetAsWallpaper}>
