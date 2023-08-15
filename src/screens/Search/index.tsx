@@ -171,7 +171,7 @@ function Search(): JSX.Element {
                     source={{uri: category.imageUrl}}
                     style={styles.popularCatImage}
                   />
-                  <PText small customStyle={styles.popularCatText}>
+                  <PText numberOfLines={1} ellipsizeMode={'tail'} small customStyle={styles.popularCatText}>
                     {category.name}
                   </PText>
                 </Pressable>

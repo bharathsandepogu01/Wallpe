@@ -15,7 +15,7 @@ export default function getSearchThemeStyles(colorsConfig: IColorsConfig) {
       marginVertical: appSpacingConfig.margin8,
     },
     searchBoxContainer: {
-      height: getDP(120),
+      height: getDP(140),
       width: '100%',
       display: 'flex',
       flexDirection: 'row',
@@ -85,7 +85,7 @@ export default function getSearchThemeStyles(colorsConfig: IColorsConfig) {
       flexDirection: 'row',
       alignItems: 'center',
       gap: getDP(16),
-      width: '48%',
+      width: '47%',
       margin: '1%',
       height: getDP(200),
       borderRadius: 5,
