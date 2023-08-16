@@ -40,7 +40,7 @@ export default function getSearchThemeStyles(colorsConfig: IColorsConfig) {
       flex: 1,
       color: colorsConfig.textPrimaryColor,
       fontFamily: appTypography.fontFamilyRegular,
-      fontSize: appTypography.fontSizeSmall,
+      fontSize: appTypography.fontSizeMedium,
     },
     categoriesContainer: {
       display: 'flex',

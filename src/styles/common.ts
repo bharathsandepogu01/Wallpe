@@ -6,10 +6,10 @@ const basePixelRatio = 3.5;
 
 const pixelRatioScale = PixelRatio.get() / basePixelRatio;
 
-export const basePixelValue = pixelRatioScale < 1 ? 24 : 18;
+export const basePixelValue = 18;
 
 export function getDP(pixelValue: number): number {
-  return Math.round((pixelRatioScale < 1 ? pixelRatioScale : 1) * pixelValue);
+  return Math.round(pixelRatioScale * pixelValue);
 }
 
 export function genRandomRGBColor(opacity: number) {
