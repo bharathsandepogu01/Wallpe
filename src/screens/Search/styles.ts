@@ -20,7 +20,6 @@ export default function getSearchThemeStyles(colorsConfig: IColorsConfig) {
       gap: getDP(8),
     },
     searchBoxContainer: {
-      height: getDP(50),
       width: '100%',
       display: 'flex',
       flexDirection: 'row',
