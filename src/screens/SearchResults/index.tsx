@@ -49,7 +49,7 @@ function SearchResults(): JSX.Element {
             backgroundColorPrimary
           />
         </Pressable>
-        <PText medium semiBold numberOfLines={1} ellipsizeMode="tail">
+        <PText semiBold numberOfLines={1} ellipsizeMode="tail">
           {route.params.searchText}
         </PText>
       </View>
@@ -65,6 +65,8 @@ function SearchResults(): JSX.Element {
             smallImageUrl: imageObj.urls.small,
             fullImageUrl: imageObj.urls.full,
             regularImageUrl: imageObj.urls.regular,
+            userImageUrl: imageObj.user.profile_image.medium,
+            userName: imageObj.user.name,
           })
         }
         graphqlQuery={GET_IMAGES_BY_SEARCH}

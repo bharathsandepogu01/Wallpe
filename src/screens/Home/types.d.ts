@@ -4,9 +4,13 @@ interface IUrl {
   regular: string;
 }
 
+interface IUserProfileImage {
+  medium: string;
+}
 interface IUser {
+  name: string;
   username: string;
-  portfolio_url: null | string;
+  profile_image: IUserProfileImage;
 }
 
 export interface IImage {

@@ -8,8 +8,8 @@ export interface ISearchData {
   searchData: ISearchInputs;
 }
 
-export interface IProfileImage {
-  small: string;
+interface IProfileImage {
+  medium: string;
 }
 
 export interface ICollectionUser {

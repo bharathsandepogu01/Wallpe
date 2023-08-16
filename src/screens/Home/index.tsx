@@ -17,7 +17,9 @@ const GET_IMAGES_LIST = gql`
       user {
         name
         username
-        portfolio_url
+        profile_image {
+          medium
+        }
       }
     }
   }
@@ -39,6 +41,8 @@ function Home(): JSX.Element {
           smallImageUrl: imageObj.urls.small,
           fullImageUrl: imageObj.urls.full,
           regularImageUrl: imageObj.urls.regular,
+          userImageUrl: imageObj.user.profile_image.medium,
+          userName: imageObj.user.name,
         })
       }
       graphqlQuery={GET_IMAGES_LIST}

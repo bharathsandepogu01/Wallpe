@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import IColorsConfig from '@styles/colors/types';
 import {getDP} from '@styles/common';
+import appSpacingConfig from '@styles/spacing';
 
 export default function getImageDetailsThemeStyles(
   colorsConfig: IColorsConfig,
@@ -50,5 +51,45 @@ export default function getImageDetailsThemeStyles(
       alignItems: 'center',
       justifyContent: 'center',
     },
+    userDetailsContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: getDP(8),
+      alignSelf: 'center',
+      backgroundColor: colorsConfig.backgroundColor,
+      padding: appSpacingConfig.padding8,
+      paddingRight: appSpacingConfig.padding12,
+      borderRadius: 5,
+      position: 'absolute',
+      bottom: getDP(160),
+    },
+    userInfoContainer: {
+      maxWidth: '90%',
+    },
+    userImage: {
+      height: getDP(60),
+      width: getDP(60),
+    },
+    wallpaperAlertContainer: {
+      display: 'flex',
+      alignSelf: 'center',
+      backgroundColor: colorsConfig.backgroundColor,
+      padding: appSpacingConfig.padding12,
+      paddingBottom: 0,
+      borderRadius: 5,
+      position: 'absolute',
+      bottom: getDP(160),
+    },
+    wallpaperAlertActionsContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    wallpaperAlertIcons: {
+      height: getDP(60),
+      width: getDP(60),
+    }
   });
 }

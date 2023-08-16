@@ -32,8 +32,9 @@ const GET_IMAGES_LIST = gql`
       }
       user {
         name
+        username
         profile_image {
-          small
+          medium
         }
       }
     }
@@ -59,7 +60,7 @@ function CollectionImages(): JSX.Element {
             backgroundColorPrimary
           />
         </Pressable>
-        <PText medium semiBold numberOfLines={1} ellipsizeMode="tail">
+        <PText semiBold numberOfLines={1} ellipsizeMode="tail">
           {route.params.collectionTitle}
         </PText>
       </View>
@@ -79,6 +80,8 @@ function CollectionImages(): JSX.Element {
             fullImageUrl: imageObj.urls.full,
             smallImageUrl: imageObj.urls.small,
             regularImageUrl: imageObj.urls.regular,
+            userImageUrl: imageObj.user.profile_image.medium,
+            userName: imageObj.user.name,
           })
         }
         graphqlQuery={GET_IMAGES_LIST}

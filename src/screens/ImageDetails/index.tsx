@@ -17,9 +17,12 @@ import PIMage from '@components/PImage';
 import PIcon from '@components/PIcon';
 import PLoader from '@components/PLoader';
 import PToast from '@components/PToast';
+import PText from '@components/PText';
 import BackArrow from '@assets/icons/arrow-left-icon.svg';
 import DownloadIcon from '@assets/icons/download-icon.svg';
 import InfoIcon from '@assets/icons/info-icon.svg';
+import CancelIcon from '@assets/icons/cancel-icon.svg';
+import SuccessIcon from '@assets/icons/check-circle-icon.svg';
 import SetAsWallpaperIcon from '@assets/icons/set-as-wallpaper-icon.svg';
 import getImageDetailsThemeStyles from './styles';
 import {IToastState} from './types';
@@ -38,6 +41,9 @@ function ImageDetails({
     showToast: false,
     toastMessage: '',
   });
+  const [showUserModal, setShowUserModal] = useState<boolean>(false);
+  const [showSetAsWallpaperAlert, setShowSetAsWallpaperAlert] =
+    useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
   const isIOSPlatform = Platform.OS === 'ios';
@@ -94,7 +100,7 @@ function ImageDetails({
         setLoading(false);
         handleSetToastState({
           toastType: 'success',
-          toastMessage: 'Downloaded Image Successfully',
+          toastMessage: 'Downloaded...',
           showToast: true,
         });
         openImageFile(res.path());
@@ -104,8 +110,7 @@ function ImageDetails({
         console.error(error);
         handleSetToastState({
           toastType: 'error',
-          toastMessage:
-            'something went wrong while downloading image, please try again...',
+          toastMessage: 'Please try again...',
           showToast: true,
         });
       });
@@ -126,8 +131,7 @@ function ImageDetails({
           } else {
             handleSetToastState({
               toastType: 'error',
-              toastMessage:
-                'Media access permission required in order to download image...',
+              toastMessage: 'Permission required...',
               showToast: true,
             });
           }
@@ -135,8 +139,7 @@ function ImageDetails({
           console.error(error);
           handleSetToastState({
             toastType: 'error',
-            toastMessage:
-              'something went wrong while permission access, please try again...',
+            toastMessage: 'Please try again...',
             showToast: true,
           });
         }
@@ -160,7 +163,7 @@ function ImageDetails({
       setLoading(false);
       handleSetToastState({
         toastType: 'success',
-        toastMessage: 'successfully completed set as wallpaper',
+        toastMessage: 'Set as wallpaper...',
         showToast: true,
       });
     } catch (error) {
@@ -168,8 +171,7 @@ function ImageDetails({
       console.error(error);
       handleSetToastState({
         toastType: 'error',
-        toastMessage:
-          'something went wrong while setting as wallpaper, please try again...',
+        toastMessage: 'Please try again...',
         showToast: true,
       });
     }
@@ -214,10 +216,10 @@ function ImageDetails({
         <Pressable onPress={() => handleDownload(params.fullImageUrl)}>
           <PIcon icon={DownloadIcon} backgroundColorDark />
         </Pressable>
-        <Pressable onPress={handleSetAsWallpaper}>
+        <Pressable onPress={() => setShowSetAsWallpaperAlert(true)}>
           <PIcon icon={SetAsWallpaperIcon} backgroundColorDark />
         </Pressable>
-        <Pressable>
+        <Pressable onPress={() => setShowUserModal(true)}>
           <PIcon icon={InfoIcon} backgroundColorDark />
         </Pressable>
       </Animated.View>
@@ -231,8 +233,9 @@ function ImageDetails({
       <PToast
         toastType={toastState.toastType}
         toastMessage={toastState.toastMessage}
-        toastTimeOut={3000}
+        toastTimeOut={2000}
         visible={toastState.showToast}
+        animationType={'slide'}
         onCancelToast={() =>
           handleSetToastState({
             showToast: false,
@@ -241,6 +244,59 @@ function ImageDetails({
           })
         }
       />
+
+      <PToast
+        customToast
+        toastTimeOut={10000}
+        visible={showSetAsWallpaperAlert}
+        onCancelToast={() => setShowSetAsWallpaperAlert(false)}
+        animationType={'slide'}>
+        <View style={styles.wallpaperAlertContainer}>
+          <PText mediumText>Set as Wallpaper ?</PText>
+          <View style={styles.wallpaperAlertActionsContainer}>
+            <Pressable onPress={() => setShowSetAsWallpaperAlert(false)}>
+              <PIcon
+                icon={CancelIcon}
+                iconContainerCustomStyles={styles.wallpaperAlertIcons}
+                iconColor={stylesConfig.error}
+              />
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                setShowSetAsWallpaperAlert(false);
+                handleSetAsWallpaper();
+              }}>
+              <PIcon
+                icon={SuccessIcon}
+                iconContainerCustomStyles={styles.wallpaperAlertIcons}
+                iconColor={stylesConfig.success}
+              />
+            </Pressable>
+          </View>
+        </View>
+      </PToast>
+
+      <PToast
+        customToast
+        toastTimeOut={3000}
+        visible={showUserModal}
+        onCancelToast={() => setShowUserModal(false)}
+        animationType={'slide'}>
+        <View style={styles.userDetailsContainer}>
+          <PIMage
+            source={{uri: route.params.userImageUrl}}
+            style={styles.userImage}
+          />
+          <View style={styles.userInfoContainer}>
+            <PText mediumText numberOfLines={1} ellipsizeMode={'tail'}>
+              {route.params.userName}
+            </PText>
+            <PText tiny light numberOfLines={1} ellipsizeMode={'tail'}>
+              {'Unsplash.com'}
+            </PText>
+          </View>
+        </View>
+      </PToast>
     </View>
   );
 }
