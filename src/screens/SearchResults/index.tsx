@@ -23,7 +23,9 @@ const GET_IMAGES_BY_SEARCH = gql`
       user {
         name
         username
-        portfolio_url
+        profile_image {
+          medium
+        }
       }
     }
   }

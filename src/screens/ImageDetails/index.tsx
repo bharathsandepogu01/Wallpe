@@ -252,27 +252,31 @@ function ImageDetails({
         onCancelToast={() => setShowSetAsWallpaperAlert(false)}
         animationType={'slide'}>
         <View style={styles.wallpaperAlertContainer}>
-          <PText mediumText>Set as Wallpaper ?</PText>
-          <View style={styles.wallpaperAlertActionsContainer}>
-            <Pressable onPress={() => setShowSetAsWallpaperAlert(false)}>
+          <PText semiBold>Set as Wallpaper ?</PText>
+          <Pressable onPress={() => setShowSetAsWallpaperAlert(false)}>
+            <View style={styles.wallpaperAlertActions}>
               <PIcon
                 icon={CancelIcon}
                 iconContainerCustomStyles={styles.wallpaperAlertIcons}
                 iconColor={stylesConfig.error}
               />
-            </Pressable>
-            <Pressable
-              onPress={() => {
-                setShowSetAsWallpaperAlert(false);
-                handleSetAsWallpaper();
-              }}>
+              <PText small>{'Decline'}</PText>
+            </View>
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              setShowSetAsWallpaperAlert(false);
+              handleSetAsWallpaper();
+            }}>
+            <View style={styles.wallpaperAlertActions}>
               <PIcon
                 icon={SuccessIcon}
                 iconContainerCustomStyles={styles.wallpaperAlertIcons}
                 iconColor={stylesConfig.success}
               />
-            </Pressable>
-          </View>
+              <PText small>{'Accept'}</PText>
+            </View>
+          </Pressable>
         </View>
       </PToast>
 

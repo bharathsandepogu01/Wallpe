@@ -74,22 +74,24 @@ export default function getImageDetailsThemeStyles(
     wallpaperAlertContainer: {
       display: 'flex',
       alignSelf: 'center',
-      backgroundColor: colorsConfig.backgroundColor,
       padding: appSpacingConfig.padding12,
-      paddingBottom: 0,
+      paddingTop: appSpacingConfig.padding8,
       borderRadius: 5,
       position: 'absolute',
       bottom: getDP(160),
+      gap: getDP(8),
+      backgroundColor: colorsConfig.backgroundColorLight,
     },
-    wallpaperAlertActionsContainer: {
+    wallpaperAlertActions: {
+      backgroundColor: colorsConfig.backgroundColor,
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
-      justifyContent: 'center',
+      borderRadius: 5,
     },
     wallpaperAlertIcons: {
-      height: getDP(60),
-      width: getDP(60),
-    }
+      height: getDP(45),
+      width: getDP(45),
+    },
   });
 }
