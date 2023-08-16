@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '@screens/Home';
 import Settings from '@screens/Settings';
@@ -19,6 +20,7 @@ import CollectionsIcon from '@assets/icons/collections-icon.svg';
 import {getDP} from '@styles/common';
 import appTypography from '@styles/typography';
 import {BottomTabParamsList} from './types';
+import appSpacingConfig from '@styles/spacing';
 
 const Tab = createBottomTabNavigator<BottomTabParamsList>();
 
@@ -33,18 +35,18 @@ function TabNavigation(): JSX.Element {
         tabBarStyle: {
           backgroundColor: stylesConfig.backgroundColor,
           borderTopColor: stylesConfig.borderColor,
-          height: getDP(140),
+          height: getDP(60),
           borderTopWidth: 0.5,
         },
         headerStyle: {
           backgroundColor: stylesConfig.backgroundColor,
           borderBottomColor: stylesConfig.borderColor,
-          height: getDP(140),
+          height: getDP(60),
           borderBottomWidth: 0.5,
         },
         headerTitleStyle: {
           fontFamily: appTypography.fontFamilyMedium,
-          fontSize: appTypography.fontSize,
+          fontSize: appTypography.fontSizeExtraLarge,
         },
         headerShown: true,
         tabBarShowLabel: false,
@@ -57,6 +59,14 @@ function TabNavigation(): JSX.Element {
           tabBarButton: props => (
             <TabsCustomButton icon={HomeIcon} {...props} />
           ),
+          header: headerProps => {
+            return (
+              <Image
+                source={require('@assets/images/appLogo.png')}
+                style={{height: getDP(50), width: getDP(50), marginLeft: appSpacingConfig.margin8}}
+              />
+            );
+          },
         }}
       />
       <Tab.Screen

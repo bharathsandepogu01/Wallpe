@@ -1,5 +1,5 @@
 import React, {useContext, useRef} from 'react';
-import {ImageBackground, Animated, Easing, View} from 'react-native';
+import {ImageBackground, Animated, Easing} from 'react-native';
 import {AppThemeContext} from '@components/AppThemeProvider';
 import IPImageProps from './types';
 import getPImageThemeStyles from './styles';
@@ -39,7 +39,10 @@ function PIMage(props: IPImageProps): JSX.Element {
   };
 
   return (
-    <ImageBackground {...props} onLoad={handleOnLoad}>
+    <ImageBackground
+      {...props}
+      imageStyle={Styles.wrapper}
+      onLoad={handleOnLoad}>
       <Animated.View
         style={[
           Styles.wrapper,

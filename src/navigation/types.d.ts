@@ -31,6 +31,8 @@ export type AppStackParamsList = {
     smallImageUrl: string;
     regularImageUrl: string;
     fullImageUrl: string;
+    userName: string;
+    userImageUrl: string;
   };
   [COLLECTION_IMAGES_SCREEN]: {
     collectionId: string;

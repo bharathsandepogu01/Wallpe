@@ -5,16 +5,17 @@ import appSpacingConfig from '@styles/spacing';
 
 export default function getPLoaderThemeStyles(colorsConfig: IColorsConfig) {
   const dotCommonStyles = {
-    height: getDP(16),
-    width: getDP(16),
+    height: getDP(8),
+    width: getDP(8),
     borderRadius: 50,
+    margin: appSpacingConfig.margin12,
     backgroundColor: colorsConfig.primary,
   };
   return StyleSheet.create({
     container: {
       padding: appSpacingConfig.padding8,
-      height: getDP(100),
-      width: getDP(100),
+      height: getDP(50),
+      width: getDP(50),
       borderRadius: 50,
       position: 'relative',
       display: 'flex',

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {View} from 'react-native';
+import {View, Image} from 'react-native';
 import styles from './styles';
 import {AppStackScreenProps} from '@navigation/types';
 import PText from '@components/PText';
@@ -12,7 +12,6 @@ function Splash({
     const timeFn = setTimeout(() => {
       navigation.replace('Home Tab', {screen: 'Papier'});
     }, 3000);
-
     return () => {
       clearTimeout(timeFn);
     };
@@ -20,7 +19,11 @@ function Splash({
 
   return (
     <View style={styles.container}>
-      <PText bold extraLarge>
+      <Image
+        source={require('@assets/images/appLogo.png')}
+        style={styles.logo}
+      />
+      <PText mediumText extraLarge>
         Papier
       </PText>
     </View>

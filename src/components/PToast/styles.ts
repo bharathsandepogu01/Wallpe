@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import IColorsConfig from '@styles/colors/types';
+import appSpacingConfig from '@styles/spacing';
 import {getDP} from '@styles/common';
 
 export default function getPToastThemeStyles(colorsConfig: IColorsConfig) {
@@ -7,32 +8,23 @@ export default function getPToastThemeStyles(colorsConfig: IColorsConfig) {
     // default color styles is of info type
 
     toastContainer: {
+      borderRadius: 999,
+      alignSelf: 'center',
+      backgroundColor: colorsConfig.textSecondaryColor,
+      position: 'absolute',
+      bottom: getDP(160),
+      paddingRight: appSpacingConfig.padding20,
+      paddingLeft: appSpacingConfig.padding8,
+    },
+    contentContainer: {
       display: 'flex',
       flexDirection: 'row',
-      alignItems: 'flex-start',
-      justifyContent: 'space-between',
-      width: '95%',
-      borderRadius: 4,
-      alignSelf: 'center',
-      borderLeftWidth: getDP(12),
-      marginTop: getDP(40),
-      paddingHorizontal: getDP(8),
-      paddingVertical: getDP(12),
-      backgroundColor: colorsConfig.backgroundColor,
-      borderLeftColor: colorsConfig.primary,
+      alignItems: 'center',
+      justifyContent: 'center',
+      maxWidth: 230,
     },
-    errorToast: {
-      borderLeftColor: colorsConfig.error,
-    },
-    warningToast: {
-      borderLeftColor: colorsConfig.warning,
-    },
-    successToast: {
-      borderLeftColor: colorsConfig.success,
-    },
-    toastMsgContainer: {
-      paddingVertical: getDP(28),
-      flex: 1,
+    message: {
+      color: colorsConfig.backgroundColor,
     },
   });
 }

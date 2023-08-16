@@ -10,15 +10,14 @@ export default StyleSheet.create({
   headerContainer: {
     display: 'flex',
     flexDirection: 'row',
-    gap: getDP(48),
+    gap: getDP(24),
     alignItems: 'center',
     padding: appSpacingConfig.padding4,
     marginBottom: appSpacingConfig.margin4,
     marginHorizontal: appSpacingConfig.margin4,
   },
   iconStyles: {
-    height: getDP(120),
-    width: getDP(120),
-    marginTop: getDP(4),
+    height: getDP(50),
+    width: getDP(50),
   }
 });

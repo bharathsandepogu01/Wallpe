@@ -5,9 +5,9 @@ import {getDP} from '@styles/common';
 export default function getPIconThemeStyles(colorsConfig: IColorsConfig) {
   return StyleSheet.create({
     default: {
-      height: getDP(120),
-      width: getDP(120),
-      borderRadius: 50,
+      height: getDP(50),
+      width: getDP(50),
+      borderRadius: 999,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

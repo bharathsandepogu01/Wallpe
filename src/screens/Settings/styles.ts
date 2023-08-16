@@ -9,6 +9,7 @@ export default function getSettingsThemeStyles(colorsConfig: IColorsConfig) {
       backgroundColor: colorsConfig.backgroundColorLight,
       paddingVertical: appSpacingConfig.padding8,
       paddingHorizontal: appSpacingConfig.padding20,
+      marginBottom: appSpacingConfig.margin8,
     },
     commonContentContainer: {
       width: '100%',
@@ -16,8 +17,9 @@ export default function getSettingsThemeStyles(colorsConfig: IColorsConfig) {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingHorizontal: appSpacingConfig.padding12,
-      paddingVertical: appSpacingConfig.padding4,
+      paddingLeft: appSpacingConfig.padding12,
+      paddingRight: appSpacingConfig.padding16,
+      marginBottom: appSpacingConfig.margin8,
       gap: 4,
     },
     commonIconContainer: {

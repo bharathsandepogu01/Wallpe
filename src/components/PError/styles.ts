@@ -10,12 +10,12 @@ export default function getPErrorThemeStyles(colorsConfig: IColorsConfig) {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      gap: getDP(16),
+      gap: getDP(8),
       padding: appSpacingConfig.padding8,
     },
     iconCustomStyles: {
-      height: getDP(120),
-      width: getDP(120),
+      height: getDP(50),
+      width: getDP(50),
     },
     textCustomStyles: {
       textAlign: 'center',

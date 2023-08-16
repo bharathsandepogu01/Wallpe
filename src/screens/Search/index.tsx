@@ -55,6 +55,9 @@ function Search(): JSX.Element {
   return (
     <View style={styles.container}>
       <View style={styles.stickyHeader}>
+        <PText extraLarge mediumText>
+          Search
+        </PText>
         <View style={[styles.searchBoxContainer]}>
           <Pressable onPress={handleOnPressSearchIcon}>
             <PIcon
@@ -67,8 +70,8 @@ function Search(): JSX.Element {
             value={inputValue}
             onChangeText={handleOnChangeText}
             onSubmitEditing={() => handleOnSearch()}
-            placeholder={'find wallpaper'}
-            placeholderTextColor={stylesConfig.textPrimaryColor}
+            placeholder={'e.g. forts'}
+            placeholderTextColor={stylesConfig.textTertiaryColor}
             ref={inputRef}
           />
           {showCancelIcon && (
@@ -82,7 +85,9 @@ function Search(): JSX.Element {
         </View>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <PText semiBold>Categories</PText>
+        <PText large mediumText>
+          Categories
+        </PText>
         <ScrollView
           showsHorizontalScrollIndicator={false}
           horizontal
@@ -120,9 +125,7 @@ function Search(): JSX.Element {
             );
           })}
         </ScrollView>
-        <PText semiBold medium>
-          Recommended
-        </PText>
+        <PText mediumText>Recommended</PText>
         <View style={styles.popularCategoryContainer}>
           {recommendedCategories.map(category => {
             return (

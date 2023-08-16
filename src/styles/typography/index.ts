@@ -1,7 +1,8 @@
 import {getDP, basePixelValue} from '@styles/common';
+import {PixelRatio} from 'react-native';
 import {ITypographyConfig} from './types';
 
-const fontScaleValue = 4;
+const fontScaleValue = PixelRatio.getFontScale();
 
 const appTypography: ITypographyConfig = {
   fontFamilyRegular: 'MontserratAlternates-Regular',

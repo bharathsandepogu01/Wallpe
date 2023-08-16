@@ -6,6 +6,7 @@ export default function getPImageThemeStyles(colorsConfig: IColorsConfig) {
   return StyleSheet.create({
     wrapper: {
       flex: 1,
+      borderRadius: 5,
     },
   });
 }

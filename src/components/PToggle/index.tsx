@@ -53,7 +53,7 @@ function PToggle(props: IPToggleProps): JSX.Element {
 
   const translateValue = toggleAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: [getDP(0), getDP(35)],
+    outputRange: [getDP(0), getDP(20)],
   });
 
   return (

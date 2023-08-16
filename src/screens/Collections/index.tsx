@@ -122,13 +122,13 @@ function Collections(): JSX.Element {
                 }}
                 style={styles.categoryBox}>
                 <View style={styles.categoryView}>
-                  <PText small bold customStyle={styles.categoryText}>
+                  <PText medium bold customStyle={styles.categoryText}>
                     {`${item.total_photos} Photos`}
                   </PText>
-                  <PText bold customStyle={styles.categoryText}>
+                  <PText large bold customStyle={styles.categoryText}>
                     {item.title}
                   </PText>
-                  <PText small bold customStyle={styles.categoryText}>
+                  <PText medium bold customStyle={styles.categoryText}>
                     {item.user.name}
                   </PText>
                 </View>

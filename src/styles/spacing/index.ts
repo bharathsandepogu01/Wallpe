@@ -1,17 +1,15 @@
-import {getDP, basePixelValue} from '@styles/common';
+import {getDP, baseSpacingValue} from '@styles/common';
 import ISpacingConfig from './types';
-
-const marginScaleValue = 4;
 
 const spacingProperties = ['margin', 'padding'];
 
 const appSpacingValuesInPixels = [
-  basePixelValue - 12,
-  basePixelValue - 8,
-  basePixelValue - 4,
-  basePixelValue,
-  basePixelValue + 4,
-  basePixelValue + 8,
+  baseSpacingValue - 12,
+  baseSpacingValue - 8,
+  baseSpacingValue - 4,
+  baseSpacingValue,
+  baseSpacingValue + 4,
+  baseSpacingValue + 8,
 ];
 
 function generateAppSpacing() {
@@ -19,7 +17,7 @@ function generateAppSpacing() {
   spacingProperties.forEach(spacingProperty => {
     appSpacingValuesInPixels.forEach(appSpacingValue => {
       obj[`${spacingProperty}${appSpacingValue}`] =
-        getDP(appSpacingValue) * marginScaleValue;
+        getDP(appSpacingValue);
     });
   });
   return obj;

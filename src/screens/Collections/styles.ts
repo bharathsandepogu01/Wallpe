@@ -9,7 +9,7 @@ export default StyleSheet.create({
   categoryItem: {
     marginBottom: appSpacingConfig.margin8,
     width: '100%',
-    height: getDP(450),
+    height: getDP(200),
     borderRadius: 10,
     overflow: 'hidden',
     marginRight: appSpacingConfig.margin4,
@@ -23,7 +23,7 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     backgroundColor: 'rgba(0,0,0,0.4)',
-    padding: appSpacingConfig.padding16,
+    padding: appSpacingConfig.padding24,
     gap: getDP(8),
   },
   categoryText: {

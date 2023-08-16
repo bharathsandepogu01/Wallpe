@@ -1,9 +1,8 @@
 import React, {useContext, useEffect} from 'react';
-import {Modal, View, Pressable} from 'react-native';
+import {Modal, View} from 'react-native';
 import PText from '@components/PText';
 import {AppThemeContext} from '@components/AppThemeProvider';
 import PIcon from '@components/PIcon';
-import CancelIcon from '@assets/icons/cancel-icon.svg';
 import ErrorIcon from '@assets/icons/error-circle-icon.svg';
 import SuccessIcon from '@assets/icons/check-circle-icon.svg';
 import WarningIcon from '@assets/icons/warning-icon.svg';
@@ -17,7 +16,7 @@ function PToast(props: IPToastProps) {
     toastMessage = '',
     toastType,
     onCancelToast,
-    toastTimeOut = 3000,
+    toastTimeOut = 1000,
     children,
     ...restProps
   } = props;
@@ -28,7 +27,6 @@ function PToast(props: IPToastProps) {
     const timeOut = setTimeout(() => {
       onCancelToast();
     }, toastTimeOut);
-
     return () => {
       clearTimeout(timeOut);
     };
@@ -47,7 +45,7 @@ function PToast(props: IPToastProps) {
     ? stylesConfig.warning
     : errorToast
     ? stylesConfig.error
-    : stylesConfig.primary;
+    : stylesConfig.primaryDark;
 
   const Icon = successToast
     ? SuccessIcon
@@ -60,20 +58,17 @@ function PToast(props: IPToastProps) {
   return (
     <Modal transparent animationType={'fade'} {...restProps}>
       {!customToast ? (
-        <View
-          style={[
-            styles.toastContainer,
-            successToast && styles.successToast,
-            warningToast && styles.warningToast,
-            errorToast && styles.errorToast,
-          ]}>
-          <PIcon icon={Icon} iconColor={color} />
-          <View style={styles.toastMsgContainer}>
-            <PText small>{toastMessage}</PText>
+        <View style={styles.toastContainer}>
+          <View style={styles.contentContainer}>
+            <PIcon icon={Icon} iconColor={color} />
+            <PText
+              small
+              numberOfLines={1}
+              ellipsizeMode={'tail'}
+              customStyle={styles.message}>
+              {toastMessage}
+            </PText>
           </View>
-          <Pressable onPress={onCancelToast}>
-            <PIcon icon={CancelIcon} iconColor={color} />
-          </Pressable>
         </View>
       ) : (
         children

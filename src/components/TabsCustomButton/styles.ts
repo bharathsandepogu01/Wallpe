@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import IColorsConfig from '@styles/colors/types';
 import {getDP} from '@styles/common';
+import appSpacingConfig from '@styles/spacing';
 
 export default function getThemeStyles(colorsConfig: IColorsConfig) {
   return StyleSheet.create({
@@ -17,20 +18,20 @@ export default function getThemeStyles(colorsConfig: IColorsConfig) {
       alignContent: 'center',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: 4,
+      padding: appSpacingConfig.padding4,
     },
 
     animatedBackground: {
       position: 'absolute',
-      height: getDP(120),
-      width: getDP(120),
+      height: getDP(50),
+      width: getDP(50),
       backgroundColor: colorsConfig.primary,
-      borderRadius: 50,
+      borderRadius: 999,
     },
 
     iconView: {
-      height: getDP(70),
-      width: getDP(70),
+      height: getDP(30),
+      width: getDP(30),
       display: 'flex',
       alignContent: 'center',
       alignItems: 'center',

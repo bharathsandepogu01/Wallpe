@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import {View, ScrollView, Linking, Pressable, Share} from 'react-native';
 import {AppThemeContext} from '@components/AppThemeProvider';
 import PText from '@components/PText';
@@ -8,8 +8,6 @@ import {AppTheme} from '@components/AppThemeProvider/types';
 import {storeData} from '@utils/asyncStorage';
 import {USER_APP_THEME_PREFERENCE} from '@constants/asyncStorage';
 import DarkModeIcon from '@assets/icons/dark-mode-icon.svg';
-// import WifiIcon from '@assets/icons/wifi-icon.svg';
-// import DownloadIcon from '@assets/icons/download-icon.svg';
 import UnLockIcon from '@assets/icons/unlock-icon.svg';
 import MobileScreenIcon from '@assets/icons/mobile-screen-icon.svg';
 import StarIcon from '@assets/icons/star-icon.svg';
@@ -50,7 +48,7 @@ function Settings(): JSX.Element {
   return (
     <ScrollView>
       <View style={styles.commonHeaderStyles}>
-        <PText small bold secondaryTextColor>
+        <PText bold secondaryTextColor>
           General
         </PText>
       </View>
@@ -79,27 +77,8 @@ function Settings(): JSX.Element {
           <PText small>App Permissions</PText>
         </View>
       </Pressable>
-      {/* <View style={styles.commonHeaderStyles}>
-        <PText small bold secondaryTextColor>
-          Preferences
-        </PText>
-      </View> */}
-      {/* <View style={styles.commonContentContainer}>
-        <View style={styles.commonIconContainer}>
-          <PIcon icon={WifiIcon} />
-          <PText small>Only Download via Wi-Fi</PText>
-        </View>
-        <PToggle />
-      </View> */}
-      {/* <View style={styles.commonContentContainer}>
-        <View style={styles.commonIconContainer}>
-          <PIcon icon={DownloadIcon} />
-          <PText small>Long Press to Download</PText>
-        </View>
-        <PToggle />
-      </View> */}
       <View style={styles.commonHeaderStyles}>
-        <PText small bold secondaryTextColor>
+        <PText bold secondaryTextColor>
           About
         </PText>
       </View>
