@@ -33,4 +33,9 @@
   return true;
 }
 
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+  // Only support portrait orientation
+  return UIInterfaceOrientationMaskPortrait;
+}
+
 @end
