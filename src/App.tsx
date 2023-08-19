@@ -1,46 +1,23 @@
+import 'react-native-gesture-handler';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import Navigation from '@navigation/index';
+import AppThemeProvider from '@components/AppThemeProvider';
+import ApolloClientProvider from '@components/ApolloClientProvider';
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <View style={styles.container}>
-        <Text style={styles.text}>Papier🤩🤩</Text>
-      </View>
-    </SafeAreaView>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <SafeAreaProvider>
+        <AppThemeProvider>
+          <ApolloClientProvider>
+            <Navigation />
+          </ApolloClientProvider>
+        </AppThemeProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  text: {
-    fontWeight: 'bold',
-    fontSize: 30,
-    color: 'black',
-  },
-});
 
 export default App;
