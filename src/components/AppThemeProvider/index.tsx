@@ -6,6 +6,7 @@ import {IAppThemeProviderProps, AppTheme, IAppThemeContextType} from './types';
 import getAppThemeColorsConfig from '@styles/colors';
 import {getData} from '@utils/asyncStorage';
 import {USER_APP_THEME_PREFERENCE} from '@constants/asyncStorage';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 export const AppThemeContext = createContext<IAppThemeContextType>({
   appTheme: DEFAULT_APP_THEME,
@@ -52,7 +53,15 @@ export default function AppThemeProvider(
         backgroundColor={value.stylesConfig.backgroundColor}
         barStyle={appTheme === 'dark' ? 'light-content' : 'dark-content'}
       />
-      {props.children}
+      <SafeAreaProvider>
+        <SafeAreaView
+          style={{
+            flex: 1,
+            backgroundColor: value.stylesConfig.backgroundColor,
+          }}>
+          {props.children}
+        </SafeAreaView>
+      </SafeAreaProvider>
     </AppThemeContext.Provider>
   );
 }
