@@ -1,4 +1,4 @@
-package com.papier;
+package com.wallpe;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.papier"
+    namespace "com.wallpe"
     defaultConfig {
-        applicationId "com.papier"
+        applicationId "com.wallpe"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
@@ -112,10 +112,10 @@ android {
     }
     signingConfigs {
             release {
-            storeFile file('papier.keystore')
-            storePassword 'papier'
+            storeFile file('wallpe.keystore')
+            storePassword 'wallpe'
             keyAlias 'my-key-alias'
-            keyPassword 'papier'
+            keyPassword 'wallpe'
     }
         debug {
             storeFile file('debug.keystore')

@@ -27,8 +27,8 @@ const GET_IMAGES_LIST = gql`
 
 function Home(): JSX.Element {
   const navigation =
-    useNavigation<AppBottomTabScreenProps<'Papier'>['navigation']>();
-  const route = useRoute<AppBottomTabScreenProps<'Papier'>['route']>();
+    useNavigation<AppBottomTabScreenProps<'Wallpe'>['navigation']>();
+  const route = useRoute<AppBottomTabScreenProps<'Wallpe'>['route']>();
 
   return (
     <PImageListView<IImage, IImagesList, IVariables>
