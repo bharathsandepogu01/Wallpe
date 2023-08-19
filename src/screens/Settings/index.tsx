@@ -33,7 +33,7 @@ function Settings(): JSX.Element {
     try {
       const result = await Share.share({
         message: `Hey checkout this awesome app...😮\n${APP_PLAY_STORE_URL}`,
-        title: 'Papier',
+        title: 'Wallpe',
       });
 
       if (result.action === Share.sharedAction) {

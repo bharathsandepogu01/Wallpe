@@ -157,7 +157,7 @@ function ImageDetails({
       const imagePath = await captureRef(imageViewRef, {
         format: 'png',
         quality: 1,
-        fileName: 'papier-home-screen-capture-' + `${Date.now()}`,
+        fileName: 'wallpe-home-screen-capture-' + `${Date.now()}`,
       });
       const res = await setWall(imagePath);
       setLoading(false);

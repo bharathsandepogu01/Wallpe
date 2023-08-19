@@ -10,7 +10,7 @@ function Splash({
 }: AppStackScreenProps<'Splash'>): JSX.Element {
   useEffect(() => {
     const timeFn = setTimeout(() => {
-      navigation.replace('Home Tab', {screen: 'Papier'});
+      navigation.replace('Home Tab', {screen: 'Wallpe'});
     }, 3000);
     return () => {
       clearTimeout(timeFn);
@@ -23,8 +23,8 @@ function Splash({
         source={require('@assets/images/appLogo.png')}
         style={styles.logo}
       />
-      <PText mediumText extraLarge>
-        Papier
+      <PText bold extraLarge>
+        Wallpe
       </PText>
     </View>
   );
