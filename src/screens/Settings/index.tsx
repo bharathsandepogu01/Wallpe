@@ -14,6 +14,7 @@ import StarIcon from '@assets/icons/star-icon.svg';
 import ShareIcon from '@assets/icons/share-icon.svg';
 import getSettingsThemeStyles from './styles';
 import {APP_PLAY_STORE_URL} from '@constants/appTheme';
+import packageJson from '../../../package.json';
 
 function Settings(): JSX.Element {
   const {setAppTheme, appTheme, stylesConfig} = useContext(AppThemeContext);
@@ -102,7 +103,7 @@ function Settings(): JSX.Element {
           <PText small>App Version</PText>
         </View>
         <PText small tertiaryTextColor>
-          1.2.0
+          {packageJson.version}
         </PText>
       </View>
     </ScrollView>
