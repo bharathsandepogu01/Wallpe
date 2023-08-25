@@ -89,7 +89,7 @@ function PImageListView<ImageType, QueriedResultType, Variables>({
 
   if (loading && !data) return <PLoader />;
 
-  if (error || columnData.current[0].length === 0)
+  if (error || newColumnData[0].length === 0)
     return (
       <PError
         errorText={`unable to fetch wallpapers, please try again...`}
