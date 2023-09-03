@@ -112,10 +112,10 @@ android {
     }
     signingConfigs {
             release {
-            storeFile file('wallpe.keystore')
-            storePassword 'wallpe'
+            storeFile file('papier.keystore')
+            storePassword 'papier'
             keyAlias 'my-key-alias'
-            keyPassword 'wallpe'
+            keyPassword 'papier'
     }
         debug {
             storeFile file('debug.keystore')
