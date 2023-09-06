@@ -25,6 +25,16 @@ function Settings(): JSX.Element {
 
   const styles = getSettingsThemeStyles(stylesConfig);
 
+  const handleRateApp = async () => {
+    const supported = await Linking.canOpenURL(APP_PLAY_STORE_URL);
+
+    if (supported) {
+      await Linking.openURL(APP_PLAY_STORE_URL);
+    } else {
+      console.error('unable to open app google play store page');
+    }
+  };
+
   const handleAppPermissions = () => {
     Linking.openSettings();
   };
@@ -32,7 +42,7 @@ function Settings(): JSX.Element {
   const handleShare = async () => {
     try {
       const result = await Share.share({
-        message: `Hey checkout this awesome app...😮\n${APP_PLAY_STORE_URL}`,
+        message: `Hey, checkout this awesome wallpaper app...😮\n${APP_PLAY_STORE_URL}`,
         title: 'Wallpe',
       });
 
@@ -91,12 +101,14 @@ function Settings(): JSX.Element {
           <PText small>Share App</PText>
         </View>
       </Pressable>
-      <View style={styles.commonContentContainer}>
+      <Pressable
+        onPress={() => handleRateApp()}
+        style={styles.commonContentContainer}>
         <View style={styles.commonIconContainer}>
           <PIcon icon={StarIcon} />
           <PText small>Rate App</PText>
         </View>
-      </View>
+      </Pressable>
       <View style={styles.commonContentContainer}>
         <View style={styles.commonIconContainer}>
           <PIcon icon={MobileScreenIcon} />
